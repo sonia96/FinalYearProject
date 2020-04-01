@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Arial";
+            font-size: 16px;
+        }
+
+        #mask_shadow {
+            display: none;
+            opacity: 0;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #popup {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            z-index: 2;
+            top: 0px;
+            width: 800px;
+            height: 20px;
+            padding-right:5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        #btn1 {
+            margin: 30px;
+        }
+        .title {
+            background: -webkit-linear-gradient(#00aaff, blue);
+            background: -o-linear-gradient(#00aaff, blue);
+            background: -moz-linear-gradient(#00aaff, blue);
+            background: linear-gradient(#00aaff, blue);
+            height: 20px;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<script src="RasterEdge_Resource_Files/javascript/jquery.js" type="text/javascript"></script>
+
+
+<body>
+
+    <input type="button" value="Show" id="btn1" class="btnpop" onclick="wdpOpenPopupForm('', 700, 800)" />
+
+    <input type="button" value="ShowFile" class="btnpop" id="btn2" 
+		onclick="wdpOpenPopupForm('http://localhost:11000/RasterEdge_Cache/ufor/209458062215/output/1adAnno.pdf', 700, 800)" />
+
+    <div id="popup">
+        <div class="title" id="puptitle" >
+            <p data-title="EdgeDoc" style="float:left"><span id="titlespan"></span></p>
+            <button id="closepopup" style="float: right; width: 20px; height: 20px; " onclick="closepop()">X</button>
+            <button id="maxpopup" style="float: right; width: 20px; height: 20px;" onclick="changesize()">A</button>
+            
+        </div>
+        <iframe id="popframe" src="index.html" height="700" width="800"></iframe>
+    </div>
+    <div id="mask_shadow"></div>
+
+
+    <script type="text/javascript">
+        window.onresize = function () {
+            if (ismax) {
+                $("#popframe").attr("height", $(window).height() - 28);
+                $("#popframe").attr("width", $(window).width());
+                $("#popup").css("width", $(window).width());
+                $("#puptitle").css("width", $(window).width());
+                $("#popup").css("top", "0px");
+                $("#popup").css("left", "0px");
+            }
+        }
+        function wdpOpenPopupForm(filesrc, height, width) {
+            if (filesrc != '')
+                $("#popframe").attr("src", "index.html?src=" + filesrc);
+            $("#popframe").attr("height", height + "px");
+            $("#popframe").attr("width", width + "px");
+            $("#popup").css("width", width + "px");
+            $("#puptitle").css("width", width + "px");
+
+        }
+        var ismax = false;
+        var preheight;
+        var prewidth;
+        var preleft;
+        var pretop;
+        function changesize() {
+            if (ismax) {
+                $("#popframe").attr("height", preheight);
+                $("#popframe").attr("width", prewidth );
+                $("#popup").css("width", prewidth);
+                $("#puptitle").css("width", prewidth);
+
+                $("#popup").css("top", pretop);
+                $("#popup").css("left", preleft);
+
+                ismax = false;
+                $("#maxpopup").text("A");
+            } else {
+                ismax = true;
+               
+                preheight = $("#popframe").attr("height");
+                prewidth = $("#popframe").attr("width");
+
+                pretop= $("#popup").css("top");
+                preleft= $("#popup").css("left");
+
+
+                $("#popframe").attr("height", $(window).height() - 28);
+                $("#popframe").attr("width", $(window).width() );
+                $("#popup").css("width", $(window).width());
+                $("#puptitle").css("width", $(window).width());
+                $("#popup").css("top", "0px");
+                $("#popup").css("left", "0px");
+                $("#maxpopup").text("N");
+            }
+        }
+        function closepop() {
+            if (ismax)
+                changesize();
+            $(document.body).trigger("click");
+          
+        }
+
+        //pop up
+        !(function ($, window, document, undefined) {
+
+            var Plugin = function (elem, options) {
+                this.$elem = elem;
+                this.$btn = $('.btnpop');
+                this.$oMask = $('#mask_shadow');
+                this.$oTitle = this.$elem.find('.title');
+                this.$title_text = this.$oTitle.find('p');
+                this.$close = this.$oTitle.find('span');
+
+                this.b_stop = true;
+                this.page_w = $(window).width();
+                this.page_h = $(window).height();
+
+                this.defaults = {
+                    ifDrag: false,
+                    dragLimit: false
+                };
+
+                this.opts = $.extend({}, this.defaults, options);
+            };
+
+            Plugin.prototype = {
+                inital: function () {
+                    var self = this;
+
+                    this.$title_text.text(this.$title_text.attr('data-title'));
+                    this.$elem.css({ left: (this.page_w - this.$elem.width()) / 2 });
+
+                    this.$elem.on('click', function () {
+                        return false;
+                    });
+
+                    this.$btn.on('click', function () {
+                        self.popbox();
+
+                        self.b_stop = false;
+
+                        return false;
+                    });
+
+                    this.$close.on('click', function () {
+                        self.closePopbox();
+
+                        return false;
+                    });
+
+                    $(document.body).on('click', function () {
+                        self.closePopbox();
+                    });
+
+                    this.$oTitle.on('mousedown', function (ev) {
+                        if (self.opts.ifDrag) {
+                            self.drag(ev);
+                        }
+
+                        return false;
+                    });
+                },
+
+                popbox: function () {
+                    var self = this;
+
+                    this.$oMask.show().animate({ opacity: 1 });;
+                    this.$elem.show().animate({ opacity: 1, top: 20 }, function () {
+                        self.b_stop = true;
+                    });
+                },
+
+                closePopbox: function () {
+                    var self = this;
+
+                    if (this.b_stop) {
+                        this.$oMask.animate({ opacity: 0 }, function () {
+                            $(this).hide();
+                        });;
+                        this.$elem.animate({ opacity: 0, top: 150 }, function () {
+                            $(this).hide();
+                        });
+                    }
+                },
+
+                drag: function (ev) {
+                    var self = this;
+                    var oEvent = ev || window.event;
+                    var disX = oEvent.clientX - this.$elem.offset().left;
+                    var disY = oEvent.clientY - this.$elem.offset().top;
+                    var _move = true;
+
+                    $(document).mousemove(function (ev) {
+                        if (_move) {
+                            var oEvent = ev || window.event;
+                            var offset_l = oEvent.clientX - disX;
+                            var offset_t = oEvent.clientY - disY;
+
+                            if (self.opts.dragLimit) {
+                                if (offset_l <= 0) {
+                                    offset_l = 0;
+                                } else if (offset_l >= self.page_w - self.$elem.width()) {
+                                    offset_l = self.page_w - self.$elem.width();
+                                }
+
+                                if (offset_t <= 0) {
+                                    offset_t = 0;
+                                } else if (offset_t >= self.page_h - self.$elem.height()) {
+                                    offset_t = self.page_h - self.$elem.height();
+                                }
+                            }
+
+                            self.$elem.css({ left: offset_l, top: offset_t });
+                        }
+                    }).mouseup(function () {
+                        _move = false;
+                    });
+                },
+
+                constructor: Plugin
+            };
+
+            $.fn.popup = function (options) {
+                var plugin = new Plugin(this, options);
+
+                return plugin.inital();
+            };
+
+        })(window.jQuery, window, document);
+    </script>
+    <script>
+        $(function () {
+            $('#popup').popup({ ifDrag: true, dragLimit: true });
+        });
+    </script>
+</body>
+</html>

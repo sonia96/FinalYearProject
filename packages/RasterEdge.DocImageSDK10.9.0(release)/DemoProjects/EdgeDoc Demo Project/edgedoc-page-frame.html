@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+</head>
+<script src="/RasterEdge_Resource_Files/javascript/jquery.js" type="text/javascript"></script>
+
+
+<body>
+    <div id="files" style="float:left;margin:10px; width:250px; padding-left:50px;" >
+
+        <a href="#" onclick="openfile('1.pdf')">Open file 1</a><br />
+        <a href="#" onclick="openfile('2.pdf')">Open file 2</a><br />
+        <a href="#" onclick="openfile('3.pdf')">Open file 3</a><br />
+    </div>
+    <div id="wdp_app" style="float: left;">
+        <div>
+            <div style="float:left">RasterEdge</div>
+            <div style="float:right">
+                <button id="maxicon" style=" width: 20px; height: 20px;" onclick="changesize()">A</button>
+                <button id="closeicon" style="width: 20px; height: 20px; " onclick="closepop()">X</button>
+                
+            </div>
+        </div>
+        <iframe id="wdp_container" src="index.html" height="700" width="800"></iframe>
+    </div>
+    <script>
+        window.onresize = function () {
+            if (ismax) {
+                $("#wdp_container").attr("height", $(window).height() - 40);
+                $("#wdp_container").attr("width", $(window).width()-20);
+                $("#wdp_app").css("width", $(window).width());
+              
+                $("#wdp_app").css("top", "0px");
+                $("#wdp_app").css("left", "0px");
+            }
+        }
+        function wdpOpenPopupForm(filesrc, height, width) {
+            if (filesrc != '')
+                $("#wdp_container").attr("src", "index.html?src=" + filesrc);
+            $("#wdp_container").attr("height", height + "px");
+            $("#wdp_container").attr("width", width + "px");
+            $("#wdp_app").css("width", width + "px");
+         
+
+        }
+        var ismax = false;
+        var preheight;
+        var prewidth;
+        function changesize() {
+            if (ismax) {
+                $("#wdp_container").attr("height", preheight);
+                $("#wdp_container").attr("width", prewidth);
+                $("#wdp_app").css("width", prewidth);
+                ismax = false;
+                $("#maxicon").text("A");
+                $("#files").show();
+            } else {
+                ismax = true;
+                preheight = $("#wdp_container").attr("height");
+                prewidth = $("#wdp_container").attr("width");
+                $("#wdp_container").attr("height", $(window).height() - 40);
+                $("#wdp_container").attr("width", $(window).width()-20);
+                $("#wdp_app").css("width", $(window).width());
+                $("#maxicon").text("N");
+                $("#files").hide();
+            }
+        }
+        function closepop() {
+            $("#wdp_container").attr("src", "index.html");
+
+        }
+      	function openfile(filesrc) {
+            if (filesrc != '')
+                $("#wdp_container").attr("src", "index.html?yourtarget=" + filesrc);
+        }
+    </script>
+</body>
+</html>

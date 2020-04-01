@@ -1,0 +1,331 @@
+﻿server.document.notdocument=Not a document!
+server.document.notpdf=This is not a PDF document!
+server.document.errorsave=Error to save file.
+server.decryption.errorpassword=Incorrect password!
+server.decryption.rightpassword=Correct password!
+
+client.content.ServerClose=Fail to connect the server.
+client.content.LoadWebappFail=Load RasterEdge_WebApp.js file fail.
+client.content.CustomizeError=Please check your custimize javascript.
+client.content.NotSupportPaste=Browser does not support paste feature, use Ctrl + V shortcuts.
+client.content.NotSupportSelect=Browser does not support select All feature, use Ctrl + A shortcuts.
+client.content.NoFooterHeader=RasterEdge Application cannot find any headers or footers in this file.
+client.content.RemoveHeaderAndFooter="Are you sure you want to permanently remove the header and footer information?
+client.content.NoBackground=RasterEdge Application cannot find a background in this file.
+client.content.RemoveBackground=Are you sure you want to permanently remove the background?
+client.content.NoWatermark=RasterEdge Application cannot find a watermark in this file.
+client.content.RemoveWatermark=Are you sure you want to permanently remove the watermark?
+client.content.InvalidNumericValue=Invalid numeric value,Please input again.
+client.content.ValueBetween=The value must be between 
+client.content.BetweenConnect=and 
+client.content.InvalidPageRange=Please enter a valid page range.
+client.content.FileProtected=The file is protected.It cannot be used for this command.
+client.content.NoSourceFile=No source file was specified.Please click Browser to locate a source file and then try again.
+client.content.CommentLimitOnRotate=Cannot comment, edit content, redact, when page is rotated.
+client.content.ErrorPassword=The password is incorrect. Please make sure that Cap Lock is not on by mistake, and try again.
+client.content.ChangeSecurity=Are you sure you want to change the security on this document?
+client.content.EnterPassword=Please enter the Permission Password!
+client.content.SecurityChange=Security settings will not be applied to the document untile you save the document.You will be able to continue to change security settings until you close the document!
+client.content.RemoveSecurity=Are you sure you want to remove security from this document?
+client.content.EnterUserPassword=Please enter the Document Open Password!
+client.content.EnterPermissionPassword=Please enter the Permission Password!
+client.content.SetPermission=To apply security settings,please set either a Pemissions Password or a Document Open Password.<br/>To remove password security checked the "remove security"
+client.content.LeaderOffsetRange=Leader Offset must in
+client.content.LeaderExtendRange=Leader Extend must in
+client.content.EnterSearchTerm=Please enter a search term
+client.content.NoOperationOnSavedStamp=The content of this stamp can not be modified.
+client.content.FileInformationError=Information error, please re-open this file
+client.content.LinkFileError=Link file failed to load
+client.content.AnnotationFileError=Annotation file failed to load
+client.content.DesignFileError=Design file failed to load
+client.content.ErrorZoomPercentageSize=Percentage Error! RasterEdge will use the default ratio.
+client.content.FailGetAttachement=fail to get the attachment information.
+client.content.ErrorReplaceData=The data is not in conformity with the requirements!
+client.content.SplitSaveOK=Have been saved successfully!
+client.content.ErrorNumberInPage=There is no page in this document numbered:
+client.content.ErrorExtractNoPage=You cannot delete all pages. At least one page must remain
+client.content.ErrorStartAndEndExtract=The starting page number must be less than or the same as the ending page number!!
+client.content.SameDocumentPages=The current document is the result of extracting
+client.content.ExtractDeletePrompt=Are you sure you want to delete page :
+client.content.ExtractSaveOK=Have been saved successfully!
+client.content.CombineSaveOK=Have been saved successfully!
+client.content.ErrorStartAndEndDelete=The starting page number must be less than or the same as the ending page number!
+client.content.ErrorDeleteAll=You cannot delete all pages. At least one page must remain.
+client.content.PageDeletePrompt=Are you sure you want to delete page :
+client.content.SaveFileOk=Have been saved successfully!
+client.content.FileNotFound=Content can not be found,Please re-open this file!
+client.content.TextTransferred=Text information is being transferred,Please wait!
+
+client.title.RasterEdge=RasterEdge Application
+client.title.Error=Error
+client.title.WarmPrompt=Warm Prompt
+client.title.RemoveSecurity=Remove security
+client.title.ApplySettings=Applying New Security Settings
+
+client.web.ViwerTitle=EdgeDoc Viewer: online view, comment, redact, convert documents.
+client.web.EditorTitle=PDF Online Editor
+client.web.AppViewerTitle=EdgeDoc Viewer
+client.web.AppEditorTitle=PDF Editor
+
+client.tabtitle.File=File
+client.tabgroup.FileUpload=File Upload
+client.tabgroup.FileOpen=Open
+client.tabicon.UploadPDF=Upload your PDF file
+client.tabicon.UploadFile=Upload your file
+client.tabicon.OpenPDF=Open an online PDF file
+client.tabicon.OpenFile=Open an online file
+client.tabicon.CreatePDFFromOther=Create PDF file from other format
+client.tabgroup.Save=Save
+client.tabicon.SavePDF=Save your PDF file
+client.tabicon.Save=Save your file
+client.tabgroup.SaveAs=Save As ..
+client.tabicon.SaveAs=To save the PDF as into other formats
+client.tabicon.SaveAsOther=To save as into other formats
+client.tabgroup.Print=Print
+client.tabicon.Print=Print File
+client.tabgroup.Prop=Properties
+client.tabicon.Prop=PDF file properties
+client.tabgroup.Setting=Setting
+client.tabicon.Setting=Setting
+
+
+client.tabtitle.View=View
+client.tabgroup.Tools=Tools
+client.tabicon.ArrowCur=Select tool:select text and image
+client.tabicon.Hand=Hand tool:pan around the document
+client.tabicon.Edit=Edit Content
+client.tabicon.SelectArea=Select Area
+client.tabgroup.Navigate=Go To
+client.tabicon.FirstPage=Go to first page
+client.tabicon.PreviousPage=Go to previous page
+client.tabicon.NextPage=Go to next page
+client.tabicon.LastPage=Go to last page
+client.tabgroup.Zoom=Zoom
+client.tabicon.ZoomIn=Zoom in
+client.tabicon.ZoomOut=Zoom Out
+client.tabicon.MarqueeZoom=Marquee Zoom
+client.tabgroup.Display=Display
+client.tabicon.SinglePage=Single page
+client.tabicon.ContinuesPage=Continuous page
+client.tabgroup.Rotate=Rotate
+client.tabicon.Rotate=Rotate(Single Mode Only)
+
+client.tabtitle.Comment=Comment
+client.tabgroup.TextMarkup=Text Markup
+client.tabicon.StickyNote=Add sticky note
+client.tabicon.HighlightText=Highlight text
+client.tabicon.UnderlineText=Underline text
+client.tabicon.StrikethroughText=Strikethrough text
+client.tabicon.ReplaceText=Add note to replace text
+client.tabicon.Textbox=Add textBOX comment
+client.tabicon.Text=Add text comment
+client.tabicon.Stamp=Add Stamp
+client.tabgroup.Drawing=Drawing
+client.tabicon.Freehand=Draw free form
+client.tabicon.Line=Draw line
+client.tabicon.Arrow=Draw arrow
+client.tabicon.Dimension=Draw measuring tool
+client.tabicon.Circle=Draw oval
+client.tabicon.Rectangle=Draw rectangle
+client.tabicon.Polygon=Draw polygon;to complete polygon right-click mouse
+client.tabicon.PolygonLines=Draw connected lines;to end lines right-click mouse
+client.tabgroup.Attachment=Attachment
+client.tabicon.Attachment=Add Attachment
+client.tabgroup.Attachment=Attachment
+client.tabicon.Attachment=Add Attachment
+client.tabgroup.ImportAnnotation=Import
+client.tabicon.ImportAnnotation=Import data file …
+client.tabgroup.ExportAnnotation=Export
+client.tabicon.ExportAnnotation=Export all comments to data file …
+
+client.tabtitle.Edit=Content Edit
+client.tabgroup.TextEdit=Text Edit
+client.tabicon.AddText=Add Text
+client.tabicon.TextBlod=Make the selected text bold
+client.tabicon.TextItalic=Italicize the selected text
+client.tabicon.TextUnderline=Underline the selected text
+client.tabicon.TextStrikethrough=Strikethrough the selected text
+client.tabicon.TextBackgroundColor=Text Highlight Color
+client.tabicon.TextFontColor=Change the selected text color
+client.tabgroup.ImageEdit=Image Edit
+client.tabicon.AddImage=Add Image
+client.tabicon.ReplaceImage=Replace Image
+client.tabicon.FlipHorizontal=Flip Horizontal
+client.tabicon.FlipVertical=Flip Vertical
+client.tabicon.RotateCounterclockwise=Rotate Counterclockwise
+client.tabicon.RotateClockwise=Rotate Clockwise
+client.tabgroup.LinkEdit=Link Edit
+client.tabicon.LinkEdit=Add or Edit Link
+client.tabgroup.Clipboard=Clipboard
+client.tabicon.CutSelection=Cut the selection
+client.tabicon.CopySelection=Copy the selection
+client.tabicon.PasteSelection=Paste the contents of the clipboard
+client.tabicon.DeleteSelection=Delete the selection
+client.tabicon.SelectAll=Select all the contents
+
+client.tabtitle.Pages=Pages
+client.tabgroup.ManipulatePage=Manipulate Page
+client.tabicon.DeletePages=Delete Pages
+client.tabicon.ReorderPages=Re-order Pages
+client.tabicon.ExtractPages=Extract Pages into One
+client.tabicon.ReplacePages=Replace Pages
+client.tabicon.SplitPage=Split document into multiple files
+client.tabgroup.InsertPage=Insert Page
+client.tabicon.InsertBlankPage=Insert Blank Page
+client.tabicon.InsertFilePage=Insert From File
+client.tabicon.CombineFilePages=Combine multiple files into one PDF file
+client.tabgroup.CombineFile=Combine
+
+
+client.tabtitle.Protection=Protection
+client.tabtitle.Redact=Redact
+client.tabgroup.RestrictEdit=Restrict Editing
+client.tabicon.AddPassword=Add a password to restrict editing
+client.tabgroup.Encrypt=Encrypt
+client.tabicon.Encrypt=Encrypt with Password 
+client.tabgroup.Redaction=Redaction
+client.tabicon.RedactText=Mark Text to Redact
+client.tabicon.RedactArea=Mark Area to Redact
+client.tabicon.RedactMultipleAreas=Mark Multiple Areas to Redact
+client.tabicon.RedactPages=Mark Pages to Redact
+client.tabicon.RedactProp=Redaction Properties
+
+client.tabtitle.Demos=Demos
+client.tabgroup.DemosFile=Demos File
+client.tabicon.DemoPDF=Open PDF Demo
+client.tabicon.DemoWord=Open word Demo
+client.tabicon.DemoExcel=Open excel Demo
+client.tabicon.DemoPPT=Open ppt Demo
+client.tabicon.DemoTIFF=Open tiff Demo
+client.tabicon.DemoDicom=Open dicom Demo
+
+
+client.tabicon.Thumnail=Page Thumbnails
+client.tabicon.Bookmarks=Bookmarks
+client.tabicon.TextSearch=Text Search
+
+client.title.FileUpload=File Upload
+client.title.PDFUpload=Upload your PDF file
+client.title.AnnotationUpload=Upload your PDF Comments Data File
+client.title.AttachmentUpload=Upload a attachment
+client.title.CreatePDFFromOther=Create a PDF from other format
+client.title.OnlineDocument=Open an online document
+
+client.content.PDFUpload=Upload a PDF file
+client.content.PDFUploadFollow= and have it displayed in the editor.
+client.content.AnnotationUpload=Upload a PDF comment data file (.fdf, .xfdf)
+client.content.AttachmentUpload=Upload a file.
+client.content.CreatePDFFromOther=Create a pdf file
+client.content.CreatePDFFromOtherFollow=and have it displayed in the editor.
+client.content.Supports=Supports
+client.content.FileUpload=Upload a file to have it displayed in the viewer.
+client.content.OnlineDocument=Enter the URL to open the online document.
+client.content.OnlineDocumentFollow1=URL must start with “http:” or “https:”
+client.content.OnlineDocumentFollow2=You can open PDF, Word, Excel, PowerPoint, and other supported files.
+client.content.OnlineDocumentFollow3=For example: “http://www.rasteredge.com/sample.pdf”
+
+client.title.SaveFile=Save File
+client.title.SavePDF=Save PDF
+client.title.OptimizedPDF=Optimized File PDF
+client.title.SaveTIFF=Save As TIFF
+client.title.SaveIMG=Save As Raster Images
+client.title.SaveHTML=Save As HTML Pages
+client.title.SaveWORD=Save As HTML Pages
+client.title.Print=Save As HTML Pages
+client.title.ExportAnnotation=Save As HTML Pages
+
+client.content.IncludeAnnotations=Include annotations
+client.content.ApplyRedactions=Apply redactions
+client.content.CommentsOnlyPDF=Cannot save annotation, redaction to current file format. To do it, you need export to PDF, TIFF, images.
+client.content.PDFOptimizer=PDF Optimizer
+client.content.FileSettings=File Settings
+client.content.Monochrome=Monochrome
+client.content.Grayscale=Grayscale
+client.content.Color=Color
+client.content.Conversion=Conversion
+client.content.Colorspace=Colorspace
+client.content.Resolution=Resolution
+client.content.Interlace=Interlace
+client.content.Filter=Filter
+client.content.Grayscale=Grayscale
+client.content.Format=Format
+client.content.BlockSize=BlockSize
+client.content.Pixels=pixels
+client.content.Interlace=Interlace
+
+client.content.SaveHTML=Multiple HTML Pages Split by each page
+client.content.SaveHTMLFollow=Single HTML Page for entire document
+client.content.AllPage=All Page
+client.content.Page=Page
+client.content.SplitPageBy=pages split by ,
+client.content.SaveAsXFDF=Save as XFDF (.xfdf) file
+
+client.content.SaveAsFDF=Save as FDF (.fdf) file
+client.content.ImageSettings=Image Settings
+client.content.ColorImages=Image Settings
+client.content.GrayscaleImages=Grayscale Settings
+client.content.MonochromeImages=Monochrome Settings
+client.content.Downsample=Downsample
+client.content.Compression=Compression
+client.content.PPIForImage=ppi for images above
+client.content.ImageSettingsFollow=All units are in pixels per inch(ppi)
+client.content.FontSettings=Font Unembedding Settings
+
+client.content.URLEmpty=(URL can not be empty!)
+client.content.URLInvalid=(Invalid URL,Please re-enter!)
+client.content.URLNotSupportFormat=(Temporarily does not support this file format!)
+client.content.FormatNotSupportToPDF=It does not support this format into pdf
+client.content.FileSize=File Size
+client.content.ErrorLoad=error to load the file.
+client.content.NeedPassword=Document protected, enter 'Document Open Password'
+client.content.Enterpassword=Enter password
+client.title.Password=Password
+
+client.title.Setting=Setting Language
+client.content.Language=Language
+client.content.SettingTip=Warm prompt:The current page will be refreshed after the change.
+
+client.button.Open=Open
+client.button.OK=OK
+client.button.Save=Save
+client.button.Print=Print
+client.button.Export=Export
+client.button.Cancel=Cancel
+client.button.Upload=Upload
+
+client.dialog.tabUploadfile=Upload PDF
+client.dialog.tabConvertToPdf=Convert To PDF
+client.dialog.tabOnlineFile=Online File
+client.dialog.tabMultiplePDF=Combine Files to PDF
+
+client.dialog.tabtitle=Start to load file...
+
+
+client.content.BookmarkGoto=Go to Bookmark
+client.content.BookmarkCreateNew=Create New Bookmark
+client.content.BookmarkCreateNewChild=Create New Child Bookmark
+client.content.BookmarkDelete=Delete
+client.content.BookmarkSet=Set Destination
+client.content.BookmarkRename=Rename
+client.content.BookmarkMoveUp=Move Up
+client.content.BookmarkMoveDown=Move Down
+
+client.content.RotateMenu=Rotate
+client.content.RotateBoxTitle=Rotate Pages
+client.content.RotateBoxDescription=(Right Click To Rotate the Page)
+client.content.RotateBoxButtonOK=OK
+client.content.RotateBoxButtonCancel=Cancel
+client.tabicon.RotateFile=Rotate Pages
+
+client.content.ReorderBoxButtonOK=OK
+client.content.ReorderBoxButtonCancel=Cancel
+
+client.content.confirmdelete=Confirm to delete page?
+
+client.content.flatten=Do you want to flatten all annotations?
+
+client.tabicon.RedactSearchText=Redact Text Search Results
+client.content.RedactSearchText=Redact Text Search Results
+client.content.NoRedactText=No search results to redact.
+client.content.HasRedactText=Do you want to redact all text search results?
+client.button.YesRedact=Yes. Redact all

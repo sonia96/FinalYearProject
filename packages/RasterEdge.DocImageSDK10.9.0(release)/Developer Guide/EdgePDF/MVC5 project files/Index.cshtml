@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>RasterEdge Application</title>
+    <script src="/RasterEdge_Resource_Files/javascript/jquery.js" type="text/javascript"></script>
+    <script src="/RasterEdge_Resource_Files/javascript/RasterEdge_WebApp_Customize.js" type="text/javascript"></script>
+    <script src="/RasterEdge_Resource_Files/javascript/RasterEdge_WebApp.js" type="text/javascript"></script>
+    <script src="/RasterEdge_Resource_Files/javascript/RasterEdge.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/RasterEdge_Resource_Files/css/process.css" type="text/css" />
+    <link rel="stylesheet" href="/RasterEdge_Resource_Files/css/customize.css" type="text/css" />
+    <link rel="stylesheet" href="/RasterEdge_Resource_Files/css/jquery-ui.css" type="text/css" />
+    <script type="text/javascript">
+        var _rootpath = "/";
+
+        _WDPApp = new WDPOnlineApplication({
+            _serverUrl: "/RasterEdge_Resource_Files/UserCommandProcessHandler.ashx"
+        });
+    </script>
+</head>
+<body>
+    <div id='rasteredge_wdp'>
+        <div id='wdp_Toolbar'></div>
+        <div id='wdp_LeftSidebar'></div>
+        <div id='wdp_Viewer'></div>
+        <div id='wdp_RightSidebar'></div>
+        <div id='wdp_Footer'></div>
+    </div>
+</body>
+</html>
