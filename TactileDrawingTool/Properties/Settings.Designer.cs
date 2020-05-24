@@ -26,5 +26,27 @@ namespace TactileDrawingTool.Properties
                 return defaultInstance;
             }
         }
+
+        public string COMport {
+            get
+            {
+                return ((string)(this["COMport"]));
+            }
+            set
+            {
+                this["COMport"] = value;
+            }
+        }
+
+        public int Baudrate {
+            get
+            {
+                return ((int)(this["Baudrate"]));
+            }
+            set
+            {
+                this["Baudrate"] = value;
+            }
+        }
     }
 }

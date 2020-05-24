@@ -1,5 +1,4 @@
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\obj\Debug\TactileDrawingTool.csprojAssemblyReference.cache
-C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\obj\Debug\TactileDrawingTool.Form1.resources
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\obj\Debug\TactileDrawingTool.Properties.Resources.resources
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\obj\Debug\TactileDrawingTool.csproj.GenerateResource.cache
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\TactileDrawingTool.exe.config
@@ -13,9 +12,7 @@ C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\obj\Debug\Ta
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Magick.Native-Q8-x64.dll
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Magick.NET-Q8-x64.dll
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Magick.NET-Q8-x64.xml
-C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Vintasoft.Imaging.dll
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Vintasoft.Shared.dll
-C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Vintasoft.Imaging.xml
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Vintasoft.Shared.xml
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\x64\concrt140.dll
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\x64\cvextern.dll
@@ -51,3 +48,4 @@ C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\Ra
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\RasterEdge.XImage.Raster.Core.dll
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\RasterEdge.XImage.Raster.dll
 C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\bin\Debug\ImageResizer.xml
+C:\Users\DELL-PC\source\repos\TactileDrawingTool\TactileDrawingTool\obj\Debug\TactileDrawingTool.TactileImageDrawingTool.resources
