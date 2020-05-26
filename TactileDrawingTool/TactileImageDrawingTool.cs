@@ -18,9 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO.Ports;
-using Emgu.CV.Structure;
 using Kaliko.ImageLibrary.Scaling;
-using Emgu.CV;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -48,6 +46,7 @@ namespace TactileDrawingTool
         Color greyscalecolor;
         bool choose = false;
         int x, y, z, ix, iy = 0;
+        bool colourpicker = false;
 
         private int pixelCount = 0;
         private double totalYMovement = 0.0;
@@ -212,14 +211,11 @@ namespace TactileDrawingTool
 
         private void SetWindow()
         {
-            //this.WindowState = FormWindowState.Maximized;
-            //this.FormBorderStyle = FormBorderStyle.Sizable;
             pictureBoxWithoutInterpolation11.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxWithoutInterpolation11.Size = new Size(450, 450);
             pictureBoxWithoutInterpolation11.ClientSize = new Size(450, 450);
 
             sourceimg = new Bitmap(wid, heigh);
-
         }
  
         private void Label1_Click(object sender, EventArgs e)
@@ -227,7 +223,7 @@ namespace TactileDrawingTool
         }
 
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void auto_translate_Click(object sender, EventArgs e)
         {
             //automatic ressize the bitmap to 30x30
             var imageres = new KalikoImage(saveLocation);
@@ -239,14 +235,11 @@ namespace TactileDrawingTool
             imageres.SavePng(saveLocation);           
             sourceimg = new Bitmap(saveLocation);
 
-
             pictureBoxWithoutInterpolation11.ImageLocation = saveLocation;
-
-
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void upload_image_Click(object sender, EventArgs e)
         {
             //upload image and greyscale it
             try
@@ -347,7 +340,7 @@ namespace TactileDrawingTool
 
 
         //monochrome button
-        private void button5_Click(object sender, EventArgs e)
+        private void monochrome_Click(object sender, EventArgs e)
         {
             pictureBoxWithoutInterpolation11.Image = monochromeimage(sourceimg);
             saveLocation = imageLocation + ".png";
@@ -355,7 +348,7 @@ namespace TactileDrawingTool
         }
 
         //upload background image in auto rendering
-        private void button6_Click_1(object sender, EventArgs e)
+        private void load_background_Click_1(object sender, EventArgs e)
         {
 
             Random rand = new Random();
@@ -378,7 +371,6 @@ namespace TactileDrawingTool
             }
 
             pictureBoxWithoutInterpolation11.Image = sourceimg;
-            //g = Graphics.FromImage(sourceimg);
 
             sourceimg.Save(imageLocation + ".png");
         }
@@ -395,85 +387,45 @@ namespace TactileDrawingTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //int width = 30;
-            //int height = 30;
-            //Random rand = new Random();
-
-            //Bitmap bmp = new Bitmap(width, height);
-
-            //for (int y=0; y<height; y++)
-            //{
-            //    for (int x=0; x<width; x++)
-            //    {
-            //        int a = rand.Next(256);
-            //        int r = rand.Next(256);
-            //        int b = rand.Next(256);
-            //        int g = rand.Next(256);
-            //        bmp.SetPixel(x, y, Color.FromArgb(a,r,g,b));
-            //    }
-            //}
-
-            //pictureBoxWithoutInterpolation11.Image = bmp;
-            //bmp.Save(imageLocation+".png");
-
         }
 
-        //private Bitmap manualdraw(int width, int height)
-        //{
 
-        //    Bitmap bmp = new Bitmap(width, height);
-        //    return bmp;
-
-        //}
-
-
-        private void pictureBox2_255_Click(object sender, EventArgs e)
+        private void colour_palette_255_Click(object sender, EventArgs e)
         {
             PictureBox p = (PictureBox)sender;
-            //pen.Color = p.BackColor;
-            brush.Color = p.BackColor;
             Debug.WriteLine("constructor fired: {0}\n", brush.Color);
+            colourpicked(p.BackColor);
 
         }
 
 
-        private void pictureBoxWithoutInterpolation11_MouseMove(object sender, MouseEventArgs e)
+        private void drawing_grid_MouseMove(object sender, MouseEventArgs e)
         {
             if (moving && currentmousex != -1 && currentmousey != -1)
             {
-                //int scalefactor = 20;
                 int sfheight = pictureBoxWithoutInterpolation11.Size.Height / heigh;
                 int sfwidth = pictureBoxWithoutInterpolation11.Size.Width / wid;
                 int newx = (currentmousex / sfwidth) * sfwidth;
                 int newy = (currentmousey / sfheight) * sfheight;
-
-                //g.DrawLine(pen, new Point(currentmousex, currentmousey), e.Location);
+                int oldx = newx / sfwidth;
+                int oldy = newy / sfheight;
                 g.FillRectangle(brush, newx, newy, sfwidth, sfheight);
-                g.DrawRectangle(pen, newx, newy, sfwidth, sfheight);
-                Debug.WriteLine("constructor fired: {0}, {1}\n", sfheight, sfwidth);
-                Debug.WriteLine("constructor fired: {0}, {1}\n", pictureBoxWithoutInterpolation11.Size.Height, pictureBoxWithoutInterpolation11.Size.Width);
-                Debug.WriteLine("constructor fired: {0}\n", brush.Color);
-                Debug.WriteLine("constructor fired: {0}\n", brush);
 
                 currentmousex = e.X;
                 currentmousey = e.Y;
 
-                int oldx = newx / sfwidth;
-                int oldy = newy / sfheight;
-
-                sourceimg.SetPixel(oldx, oldy, brush.Color);
-
-            }
+            sourceimg.SetPixel(oldx, oldy, brush.Color);
+            }          
         }
 
-        private void pictureBoxWithoutInterpolation11_MouseDown(object sender, MouseEventArgs e)
+        private void drawing_grid_MouseDown(object sender, MouseEventArgs e)
         {
             moving = true;
             currentmousex = e.X;
             currentmousey = e.Y;
         }
 
-        private void pictureBoxWithoutInterpolation11_MouseUp(object sender, MouseEventArgs e)
+        private void drawing_grid_MouseUp(object sender, MouseEventArgs e)
         {
             moving = false;
             currentmousex = -1;
@@ -491,31 +443,36 @@ namespace TactileDrawingTool
 
         }
 
-        private void button7_Click_1(object sender, EventArgs e)
+        private void inver_image_Click_1(object sender, EventArgs e)
         {
             pictureBoxWithoutInterpolation11.Image = invertimage(sourceimg);
             saveLocation = imageLocation + ".png";
             pictureBoxWithoutInterpolation11.Image.Save(saveLocation);
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void colour_slider_Click(object sender, EventArgs e)
         {
-            PictureBox p = (PictureBox)sender;
-            //pen.Color = p.BackColor;
-            brush.Color = p.BackColor;
+            PictureBox p = (PictureBox)sender;           
+            colourpicked(p.BackColor);
         }
 
-        private void pictureBox4_MouseDown(object sender, MouseEventArgs e)
+        private void colourpicked(Color brushcolour)
+        {
+            brush.Color = brushcolour;
+            pictureBox3.BackColor = brushcolour;
+        }
+
+        private void colour_slider_MouseDown(object sender, MouseEventArgs e)
         {
             choose = true;
         }
 
-        private void pictureBox4_MouseUp(object sender, MouseEventArgs e)
+        private void colour_slider_MouseUp(object sender, MouseEventArgs e)
         {
             choose = false;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void clear_image_Click(object sender, EventArgs e)
         {
             pictureBoxWithoutInterpolation11.Image = null;
             pictureBoxWithoutInterpolation11.Update();
@@ -533,14 +490,23 @@ namespace TactileDrawingTool
 
         private void pictureBoxWithoutInterpolation11_Paint(object sender, PaintEventArgs e)
         {
-            //e.Graphics.FillRectangle(brush, Rectangle(30,30,30,30);
-            
-            //g = Graphics.FromImage(sourceimg);
-            sourceimg.SetPixel(x, y, Color.Red);
+
 
         }
 
-        private void pictureBox4_MouseMove(object sender, MouseEventArgs e)
+        private void colour_picker_Click(object sender, EventArgs e)
+        {
+            colourpicker = true;
+            
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void colour_slider_MouseMove(object sender, MouseEventArgs e)
         {
             if (choose)
             {
@@ -552,10 +518,19 @@ namespace TactileDrawingTool
 
         private void pictureBoxWithoutInterpolation11_Click(object sender, EventArgs e)
         {
-
+            int sfheight = pictureBoxWithoutInterpolation11.Size.Height / heigh;
+            int sfwidth = pictureBoxWithoutInterpolation11.Size.Width / wid;
+            int oldx = (currentmousex / sfwidth);
+            int oldy = (currentmousey / sfheight);
+            if (colourpicker)
+            {
+                colourpicked(sourceimg.GetPixel(oldx, oldy));
+                colourpicker = false;
+                return;
+            }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void start_print(object sender, EventArgs e)
         {
             this.button_7.Enabled = false;
             this.button_8.Visible = true;
@@ -563,7 +538,7 @@ namespace TactileDrawingTool
             this.startPrinting();        
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void stop_print(object sender, EventArgs e)
         {
             this.button_7.Enabled = true;
             this.button_8.Visible = false;
